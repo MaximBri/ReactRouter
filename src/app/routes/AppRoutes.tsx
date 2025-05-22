@@ -9,6 +9,7 @@ import { EpisodesPage } from '@/pages/episodes'
 import { EpisodePage } from '@/pages/episode'
 import { PlacesPage } from '@/pages/places'
 import { PlacePage } from '@/pages/place'
+import { NotFoundPage } from '@/pages/not-found'
 
 export const AppRoutes = () => {
   return (
@@ -28,6 +29,7 @@ export const AppRoutes = () => {
           <Route path=':id' element={<PlacePage />} />
         </Route>
       </Route>
+      <Route path='*' element={<NotFoundPage />}></Route>
     </Routes>
   )
 }
