@@ -1,18 +1,45 @@
 import { Route, Routes } from 'react-router-dom'
+import { lazy, Suspense, type ReactNode } from 'react'
 
 import { routes } from '@/shared/configs/routes'
 import { MainLayout } from '../layouts/MainLayout'
-import { HomePage } from '@/pages/home'
-import { CharactersPage } from '@/pages/characters'
-import { CharacterPage } from '@/pages/character'
-import { EpisodesPage } from '@/pages/episodes'
-import { EpisodePage } from '@/pages/episode'
-import { PlacesPage } from '@/pages/places'
-import { PlacePage } from '@/pages/place'
-import { NotFoundPage } from '@/pages/not-found'
-import { LoginPage } from '@/pages/login'
 import { PrivateRoute } from '@/shared/private-route/PrivateRoute'
-import type { ReactNode } from 'react'
+
+const HomePage = lazy(() =>
+  import('@/pages/home').then((module) => ({ default: module.HomePage }))
+)
+const CharactersPage = lazy(() =>
+  import('@/pages/characters').then((module) => ({
+    default: module.CharactersPage,
+  }))
+)
+const CharacterPage = lazy(() =>
+  import('@/pages/character').then((module) => ({
+    default: module.CharacterPage,
+  }))
+)
+const EpisodesPage = lazy(() =>
+  import('@/pages/episodes').then((module) => ({
+    default: module.EpisodesPage,
+  }))
+)
+const EpisodePage = lazy(() =>
+  import('@/pages/episode').then((module) => ({ default: module.EpisodePage }))
+)
+const PlacesPage = lazy(() =>
+  import('@/pages/places').then((module) => ({ default: module.PlacesPage }))
+)
+const PlacePage = lazy(() =>
+  import('@/pages/place').then((module) => ({ default: module.PlacePage }))
+)
+const NotFoundPage = lazy(() =>
+  import('@/pages/not-found').then((module) => ({
+    default: module.NotFoundPage,
+  }))
+)
+const LoginPage = lazy(() =>
+  import('@/pages/login').then((module) => ({ default: module.LoginPage }))
+)
 
 interface pretectedRouteModel {
   path: string
@@ -56,8 +83,22 @@ export const AppRoutes = () => {
           </Route>
         ))}
       </Route>
-      <Route path={routes.LOGIN} element={<LoginPage />} />
-      <Route path='*' element={<NotFoundPage />}></Route>
+      <Route
+        path={routes.LOGIN}
+        element={
+          <Suspense fallback={'Loading...'}>
+            <LoginPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path='*'
+        element={
+          <Suspense fallback={'Loading...'}>
+            <NotFoundPage />
+          </Suspense>
+        }
+      ></Route>
     </Routes>
   )
 }
