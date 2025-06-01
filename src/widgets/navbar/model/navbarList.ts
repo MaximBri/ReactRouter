@@ -10,4 +10,5 @@ export const navbarList: NavbarModel[] = [
   { path: routes.CHARACTERS, name: 'Characters' },
   { path: routes.EPISODES, name: 'Episodes' },
   { path: routes.PLACES, name: 'Places' },
+  { path: routes.LOGIN, name: 'Login' },
 ]

@@ -10,9 +10,12 @@ export interface PlaceModel {
   created: Date
 }
 
-export const Place: FC<{ data: PlaceModel }> = ({ data }) => {
+export const Place: FC<{
+  data: PlaceModel
+  ref?: (node: HTMLLIElement) => void
+}> = ({ data, ref }) => {
   return (
-    <li className={styles.place}>
+    <li className={styles.place} ref={ref}>
       <Link to={String(data.id)}>
         <h3>{data.name}</h3>
         <h3>Type: {data.type}</h3>

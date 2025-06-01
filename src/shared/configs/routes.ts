@@ -3,4 +3,5 @@ export enum routes {
   CHARACTERS = '/characters',
   PLACES = '/places',
   EPISODES = '/episodes',
+  LOGIN = '/login',
 }

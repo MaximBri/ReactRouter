@@ -10,9 +10,12 @@ export interface EpisodeModel {
   created: Date
 }
 
-export const Episode: FC<{ data: EpisodeModel }> = ({ data }) => {
+export const Episode: FC<{
+  data: EpisodeModel
+  ref?: (node: HTMLLIElement) => void
+}> = ({ data, ref }) => {
   return (
-    <li className={styles.episode}>
+    <li className={styles.episode} ref={ref}>
       <Link to={String(data.id)}>
         <h3 className={styles.episode__name}>{data.name}</h3>
         <h4>Air Date: {data.air_date}</h4>
