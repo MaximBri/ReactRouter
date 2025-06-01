@@ -1,16 +1,19 @@
 import { HashRouter } from 'react-router-dom'
 
+import ErrorBoundary from './error-boundary/ErrorBoundary'
 import { AppRoutes } from './routes/AppRoutes'
+import { AuthProvider } from './context/AuthProvider'
 import './styles/reset.scss'
 import './styles/App.scss'
-import { AuthProvider } from './context/AuthProvider'
 
 function App() {
   return (
     <HashRouter>
-      <AuthProvider>
-        <AppRoutes />
-      </AuthProvider>
+      <ErrorBoundary>
+        <AuthProvider>
+          <AppRoutes />
+        </AuthProvider>
+      </ErrorBoundary>
     </HashRouter>
   )
 }
