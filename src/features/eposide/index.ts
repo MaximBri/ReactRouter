@@ -1,1 +1,1 @@
-export { Episode } from './ui/Episode'
+export { Episode } from './Episode'
