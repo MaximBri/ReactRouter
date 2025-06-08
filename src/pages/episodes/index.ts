@@ -1,1 +1,1 @@
-export { EpisodesPage } from './ui/EpisodesPage'
+export { EpisodesPage } from './EpisodesPage'

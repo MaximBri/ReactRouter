@@ -1,1 +1,1 @@
-export { Place } from './ui/Place'
+export { Place } from './Place'

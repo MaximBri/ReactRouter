@@ -1,1 +1,1 @@
-export { PlacesPage } from './ui/PlacesPage'
+export { PlacesPage } from './PlacesPage'
