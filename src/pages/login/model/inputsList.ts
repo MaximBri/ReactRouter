@@ -1,4 +1,4 @@
-import type { InputProps } from '@/features/input/ui/Input'
+import type { InputProps } from '@/features/input/Input'
 import type { SignupInputsModel } from './loginModel'
 
 interface InputModel
